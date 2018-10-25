@@ -20,14 +20,23 @@ public class FlightSearchPage extends TestBase{
 	@FindBy(xpath="//p[text()='Return']//following-sibling::p[@class='check-dates modify_txt']")
 	public WebElement returnDate;
 	
+	@FindBy(xpath="(//div[contains(@class,'left_pannel')]//span[@class='radio_icon'])[1]")
+	public WebElement departFirstFlightRadio;
+	
 	@FindBy(xpath="(//div[contains(@class,'left_pannel')]//span[@class='radio_icon'])[2]")
 	public WebElement departSecFlightRadio;
+	
+	@FindBy(xpath="(//div[contains(@class,'right_pannel')]//span[@class='radio_icon'])[1]")
+	public WebElement returnFirstFlightRadio;
 	
 	@FindBy(xpath="(//div[contains(@class,'right_pannel')]//span[@class='radio_icon'])[2]")
 	public WebElement returnSecFlightRadio;
 	
 	@FindBy(xpath="(//strong[text()='Airlines']//parent::p[@class='append_bottom10 clearfix']//following-sibling::div//span[@class='checkbox_state pull-right'])[1]")
 	public WebElement airlinesCheckBox1;
+	
+	@FindBy(xpath="(//span[@class='make_blockElm airline_name append_bottom4 ng-binding'])[1]")
+	public WebElement airlinesCheckBox1Title;
 	
 	@FindBy(xpath="//a[text()='Book']")
 	public WebElement bookBtn;

@@ -5,6 +5,7 @@ import java.util.NoSuchElementException;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -19,6 +20,7 @@ public class TestBase {
 	public static WebDriver driver;
 	public static EventFiringWebDriver e_driver;
 	public static EventHandler eventListener;
+	public static JavascriptExecutor js;
 
 	public void initialisation() {
 		System.setProperty("webdriver.chrome.driver", "/usr/local/share/chromedriver/chromedriver");
@@ -83,5 +85,11 @@ public class TestBase {
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		//Solution for stale element exception is try .refreshed
 		wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(element))).click();
+	}
+	
+	public static void scrollTo(WebElement element){
+		System.out.println("Scrolling till element: " +element);
+		js=(JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", element);
 	}
 }

@@ -21,7 +21,7 @@ public class HomePageTest extends TestBase {
 	public void setUp() {
 		initialisation();
 		homePage = new HomePage();
-		flightSearchPage=new FlightSearchPage();
+		flightSearchPage = new FlightSearchPage();
 	}
 
 	@Test(priority = 1)
@@ -35,7 +35,7 @@ public class HomePageTest extends TestBase {
 	@Test(priority = 2)
 	public void searchFlights() {
 		if (homePage.flightsLinkHighlighted.isDisplayed() == true) {
-			flightSearchPage=homePage.searchFlights();
+			flightSearchPage = homePage.searchFlights();
 			isElementVisible(flightSearchPage.departureDate);
 		}
 	}
@@ -46,7 +46,7 @@ public class HomePageTest extends TestBase {
 		String expected = "MakeMyTrip - #1 Travel Website 50% OFF on Hotels, Flights & Holiday...";
 		Assert.assertEquals(actual, expected, "Title not matching:");
 	}
-	
+
 	@AfterMethod
 	public void tearDown() {
 		driver.quit();
